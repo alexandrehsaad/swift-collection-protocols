@@ -1,3 +1,5 @@
+![](Assets/GitHubBanner.png)
+
 # swift-collection-protocols
 
 A Swift package containing collection protocols, for the Swift programming language.
