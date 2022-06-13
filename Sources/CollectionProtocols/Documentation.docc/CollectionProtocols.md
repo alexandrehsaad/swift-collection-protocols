@@ -1,6 +1,6 @@
 # ``CollectionProtocols``
 
-A Swift package containing collection protocols, for the Swift programming language.
+A package containing collection protocols, for the Swift programming language.
 
 ## Overview
 
