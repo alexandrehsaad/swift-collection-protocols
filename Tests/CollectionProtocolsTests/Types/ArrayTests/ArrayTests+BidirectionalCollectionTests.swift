@@ -1,7 +1,7 @@
-// Array+CollectionTests.swift
+// Array+BidirectionalCollectionTests.swift
 // CollectionProtocolsTests
 //
-// Copyright © 2021 Alexandre H. Saad
+// Copyright © 2021-2022 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -9,69 +9,69 @@ import XCTest
 @testable import CollectionProtocols
 
 extension ArrayTests {
-	func test_firstIndexFails() {
+	func test_lastIndexFails() {
 		// Given
 		let collection: Array<UInt> = []
 		
 		// Then
-		XCTAssertEqual(collection.startIndex, 0)
-		XCTAssertNil(collection.firstIndex)
-	}
-	
-	func test_firstIndexSucceeds() {
-		// Given
-		let collection: Array<UInt> = [10, 20, 30, 40, 50]
-		
-		// Then
-		XCTAssertEqual(collection.startIndex, 0)
-		XCTAssertEqual(collection.firstIndex, 0)
-	}
-	
-	@available(swift, deprecated: 5.5)
-	func test_secondFails() {
-		// Given
-		let collection: Array<UInt> = []
-		
-		// Then
-		XCTAssertNil(collection.second)
+		XCTAssertNil(collection.lastIndex)
 		XCTAssertEqual(collection.endIndex, 0)
 	}
 	
-	@available(swift, deprecated: 5.5)
-	func test_secondSucceeds() {
+	func test_lastIndexSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
 		// Then
-		XCTAssertEqual(collection.second, 20)
+		XCTAssertEqual(collection.lastIndex, 4)
 		XCTAssertEqual(collection.endIndex, 5)
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_thirdFails() {
+	func test_secondLastFails() {
 		// Given
 		let collection: Array<UInt> = []
 		
 		// Then
-		XCTAssertNil(collection.third)
+		XCTAssertNil(collection.secondLast)
 		XCTAssertEqual(collection.endIndex, 0)
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_thirdSucceeds() {
+	func test_secondLastSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
 		// Then
-		XCTAssertEqual(collection.third, 30)
+		XCTAssertEqual(collection.secondLast, 40)
 		XCTAssertEqual(collection.endIndex, 5)
 	}
 	
-	func test_afterSucceeds() {
+	@available(swift, deprecated: 5.5)
+	func test_thirdLastFails() {
+		// Given
+		let collection: Array<UInt> = []
+		
+		// Then
+		XCTAssertNil(collection.thirdLast)
+		XCTAssertEqual(collection.endIndex, 0)
+	}
+	
+	@available(swift, deprecated: 5.5)
+	func test_thirdLastSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
 		// Then
-		XCTAssertEqual(collection.after(10), 20)
+		XCTAssertEqual(collection.thirdLast, 30)
+		XCTAssertEqual(collection.endIndex, 5)
+	}
+	
+	func test_beforeSucceeds() {
+		// Given
+		let collection: Array<UInt> = [10, 20, 30, 40, 50]
+		
+		// Then
+		XCTAssertEqual(collection.before(50), 40)
 	}
 }
