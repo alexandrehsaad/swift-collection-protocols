@@ -61,7 +61,7 @@ extension Collection {
 	/// - throws: Rethrows a thrown error.
 	/// - returns: A collection of all indices where the specified condition evaluates to true.
 	public func indices(where condition: (Self.Element) throws -> Bool)
-	rethrows -> [Self.Index] {
+	rethrows -> Array<Self.Index> {
 		return try self.indices.filter({ (index) in
 			try condition(self[index])
 		})

@@ -11,7 +11,7 @@ import XCTest
 extension ArrayTests {
 	func test_replaceWhereFails() {
 		// Given
-		var collection: Array<UInt> = []
+		var collection: Array<UInt> = .init()
 		
 		// Then
 		collection.replace(where: { $0 == 0 }, with: 30)
@@ -33,7 +33,7 @@ extension ArrayTests {
 	
 	func test_replaceFirstWithFails() {
 		// Given
-		var collection: Array<UInt> = []
+		var collection: Array<UInt> = .init()
 		
 		// Then
 		collection.replaceFirst(with: 10)
@@ -55,7 +55,7 @@ extension ArrayTests {
 	
 	func test_replaceLastWithFails() {
 		// Given
-		var collection: Array<UInt> = []
+		var collection: Array<UInt> = .init()
 		
 		// Then
 		collection.replaceLast(with: 50)

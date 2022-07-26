@@ -11,7 +11,7 @@ import XCTest
 extension ArrayTests {
 	func test_firstIndexFails() {
 		// Given
-		let collection: Array<UInt> = []
+		let collection: Array<UInt> = .init()
 		
 		// Then
 		XCTAssertEqual(collection.startIndex, 0)
@@ -30,7 +30,7 @@ extension ArrayTests {
 	@available(swift, deprecated: 5.5)
 	func test_secondFails() {
 		// Given
-		let collection: Array<UInt> = []
+		let collection: Array<UInt> = .init()
 		
 		// Then
 		XCTAssertNil(collection.second)
@@ -50,7 +50,7 @@ extension ArrayTests {
 	@available(swift, deprecated: 5.5)
 	func test_thirdFails() {
 		// Given
-		let collection: Array<UInt> = []
+		let collection: Array<UInt> = .init()
 		
 		// Then
 		XCTAssertNil(collection.third)
