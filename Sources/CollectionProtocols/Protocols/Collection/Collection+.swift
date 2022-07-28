@@ -129,7 +129,6 @@ extension Collection {
 	}
 }
 
-
 extension Collection
 where Self.Element: Equatable {
 	
