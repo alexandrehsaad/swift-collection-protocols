@@ -19,7 +19,3 @@ No overview available.
 ### Clamping values
 
 - ``Clampable``
-
-### New Collections
-
-- ``fibonacci(_:)``
