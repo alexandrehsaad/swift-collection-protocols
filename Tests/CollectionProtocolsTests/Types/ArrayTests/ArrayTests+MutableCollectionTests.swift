@@ -74,4 +74,26 @@ extension ArrayTests {
 		// Then
 		XCTAssertEqual(collection, [10, 20, 30, 40, 50])
 	}
+	
+	func test_modifyEachFails() {
+		// Given
+		var collection: Array<UInt> = .init()
+		
+		// Then
+		collection.modifyEach({ $0 += 1 })
+		
+		// Then
+		XCTAssertEqual(collection, [])
+	}
+	
+	func test_modifyEachSucceeds() {
+		// Given
+		var collection: Array<UInt> = .init(1...5)
+		
+		// Then
+		collection.modifyEach({ $0 += 1 })
+		
+		// Then
+		XCTAssertEqual(collection, [2, 3, 4, 5, 6])
+	}
 }
