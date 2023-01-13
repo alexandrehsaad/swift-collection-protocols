@@ -17,7 +17,10 @@ extension MutableCollection {
 	///
 	/// - parameter predicate: A closure that takes an element as its argument and returns a boolean value that indicates whether the passed element satisfies the given predicate.
 	/// - parameter newElement: The new element to add to the collection.
-	public mutating func replace(where predicate: (Self.Element) -> Bool, with newElement: Self.Element) {
+	public mutating func replace(
+		where predicate: (Self.Element) -> Bool,
+		with newElement: Self.Element
+	) {
 		for index in self.indices {
 			if predicate(self[index]) == true {
 				self[index] = newElement
@@ -64,5 +67,31 @@ extension MutableCollection {
 		}
 		
 		self[index] = newElement
+	}
+	
+	/// Modifies the given closure on each element in the sequence in the same order as a `for inout`-`in` loop.
+	///
+	/// ```swift
+	/// var collection: Array<UInt> = .init(1...5)
+	/// collection.modifyEach({ $0 += 1 })
+	///
+	/// print(collection)
+	/// // Prints "[2, 3, 4, 5, 6]"
+	/// ```
+	///
+	/// Using the `modifyEach` method is distinct from a `for`-`in` loop in two important ways:
+	///
+	/// 1. You cannot use a `break` or `continue` statement to exit the current call of the `body` closure or skip subsequent calls.
+	/// 2. Using the `return` statement in the `body` closure will exit only from the current call to `body`, not from any outer scope, and won't skip subsequent calls.
+	///
+	/// - Parameter body: A closure that takes a modifiable element of the sequence as a parameter.
+	public mutating func modifyEach(
+		_ body: (inout Self.Element) throws -> Void
+	) rethrows {
+		var index: Self.Index = self.startIndex
+		while index != self.endIndex {
+			try body(&self[index])
+			self.formIndex(after: &index)
+		}
 	}
 }
