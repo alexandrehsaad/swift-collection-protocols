@@ -31,7 +31,8 @@ extension BidirectionalCollection {
 	/// print(collection.secondLastIndex)
 	/// // Prints "3"
 	/// ```
-	private var secondLastIndex: Self.Index? {
+    @available(swift, deprecated: 5.5)
+    private var secondLastIndex: Self.Index? {
         return self.indices.index(
             self.endIndex,
             offsetBy: -2,
@@ -47,7 +48,8 @@ extension BidirectionalCollection {
 	/// print(collection.thirdLastIndex)
 	/// // Prints "2"
 	/// ```
-	private var thirdLastIndex: Self.Index? {
+    @available(swift, deprecated: 5.5)
+    private var thirdLastIndex: Self.Index? {
         return self.indices.index(
             self.endIndex,
             offsetBy: -3,

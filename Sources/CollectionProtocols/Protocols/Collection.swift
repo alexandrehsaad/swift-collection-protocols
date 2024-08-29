@@ -31,6 +31,7 @@ extension Collection {
 	/// print(collection.secondIndex)
 	/// // Prints "1"
 	/// ```
+    @available(swift, deprecated: 5.5)
     private var secondIndex: Self.Index? {
         return self.indices.index(
             self.startIndex,
@@ -47,7 +48,8 @@ extension Collection {
 	/// print(collection.thirdIndex)
 	/// // Prints "2"
 	/// ```
-	private var thirdIndex: Self.Index? {
+    @available(swift, deprecated: 5.5)
+    private var thirdIndex: Self.Index? {
         return self.indices.index(
             self.startIndex,
             offsetBy: 2,
@@ -81,7 +83,8 @@ extension Collection {
 	/// print(collection.second)
 	/// // Prints "20"
 	/// ```
-	public var second: Self.Element? {
+    @available(swift, deprecated: 5.5)
+    public var second: Self.Element? {
 		guard let index: Self.Index = self.secondIndex else {
 			return nil
 		}
@@ -98,7 +101,8 @@ extension Collection {
 	/// print(collection.third)
 	/// // Prints "30"
 	/// ```
-	public var third: Self.Element? {
+    @available(swift, deprecated: 5.5)
+    public var third: Self.Element? {
 		guard let index: Self.Index = self.thirdIndex else {
 			return nil
 		}
