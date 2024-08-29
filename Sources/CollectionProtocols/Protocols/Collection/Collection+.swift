@@ -1,14 +1,12 @@
+//
 // Collection+.swift
 // CollectionProtocols
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
 extension Collection {
-	
-	// MARK: - Inspecting Indexes
-	
 	/// The position of the first element in this collection.
 	/// If the collection doesn't contain an element, the value of this property is nil.
 	///
@@ -17,12 +15,12 @@ extension Collection {
 	/// print(collection.firstIndex)
 	/// // Prints "0"
 	/// ```
-	public var firstIndex: Int? {
+	public var firstIndex: Self.Index? {
 		guard self.isEmpty == false else {
 			return nil
 		}
 		
-		return .zero
+		return 0 as? Self.Index
 	}
 	
 	/// The position of the second element in this collection.
@@ -33,8 +31,12 @@ extension Collection {
 	/// print(collection.secondIndex)
 	/// // Prints "1"
 	/// ```
-	private var secondIndex: Int? {
-		return self.indices.index(self.startIndex, offsetBy: 1, limitedBy: self.endIndex) as? Int
+    private var secondIndex: Self.Index? {
+        return self.indices.index(
+            self.startIndex,
+            offsetBy: 1,
+            limitedBy: self.endIndex
+        )
 	}
 	
 	/// The position of the third element in this collection.
@@ -45,8 +47,12 @@ extension Collection {
 	/// print(collection.thirdIndex)
 	/// // Prints "2"
 	/// ```
-	private var thirdIndex: Int? {
-		return self.indices.index(self.startIndex, offsetBy: 2, limitedBy: self.endIndex) as? Int
+	private var thirdIndex: Self.Index? {
+        return self.indices.index(
+            self.startIndex,
+            offsetBy: 2,
+            limitedBy: self.endIndex
+        )
 	}
 	
 	/// Returns an array containing, in order, the elements in this collection that satisfy the given predicate.
@@ -62,12 +68,10 @@ extension Collection {
 	/// - returns: A collection of all indices where the specified condition evaluates to true.
 	public func indices(where condition: (Self.Element) throws -> Bool)
 	rethrows -> Array<Self.Index> {
-		return try self.indices.filter({ (index) in
-			try condition(self[index])
-		})
+        return try self.indices.filter({ (index) in
+            try condition(self[index])
+        })
 	}
-	
-	// MARK: - Inspecting Elements
 	
 	/// The second element of this collection.
 	/// If the collection doesn't contain two indices, the value of this property is nil.
@@ -77,9 +81,8 @@ extension Collection {
 	/// print(collection.second)
 	/// // Prints "20"
 	/// ```
-	@available(swift, deprecated: 5.5)
 	public var second: Self.Element? {
-		guard let index: Self.Index = self.secondIndex as? Self.Index else {
+		guard let index: Self.Index = self.secondIndex else {
 			return nil
 		}
 		
@@ -95,9 +98,8 @@ extension Collection {
 	/// print(collection.third)
 	/// // Prints "30"
 	/// ```
-	@available(swift, deprecated: 5.5)
 	public var third: Self.Element? {
-		guard let index: Self.Index = self.thirdIndex as? Self.Index else {
+		guard let index: Self.Index = self.thirdIndex else {
 			return nil
 		}
 		
@@ -126,20 +128,5 @@ extension Collection {
 		}
 		
 		return self[nextIndex]
-	}
-}
-
-extension Collection
-where Self.Element: Equatable {
-	
-	// MARK: -
-	
-	/// Returns a boolean value indicating whether the elements of this sequence are equal.
-	///
-	/// - returns: A boolean indicating whether all the elements are equal.
-	public var areEqual: Bool {
-		return self.dropFirst().allSatisfy({ (element) in
-			self.first == element
-		})
 	}
 }

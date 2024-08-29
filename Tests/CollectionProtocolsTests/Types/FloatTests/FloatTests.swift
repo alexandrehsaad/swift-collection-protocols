@@ -1,13 +1,12 @@
+//
 // FloatTests.swift
 // CollectionProtocolsTests
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
 import XCTest
 @testable import CollectionProtocols
 
-final class FloatTests: XCTestCase {
-	typealias TestSubject = Float
-}
+internal final class FloatTests: XCTestCase {}

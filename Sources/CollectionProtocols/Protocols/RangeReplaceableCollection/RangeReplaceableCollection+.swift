@@ -1,7 +1,8 @@
+//
 // RangeReplaceableCollection+.swift
 // CollectionProtocols
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -19,7 +20,7 @@ extension RangeReplaceableCollection {
 	/// - throws: Rethrows a thrown error.
 	/// - returns: A collection with an element removed.
 	@discardableResult
-	public mutating func removeFirst(where predicate: (Element) throws -> Bool)
+	public mutating func removeFirst(where predicate: (Self.Element) throws -> Bool)
 	rethrows -> Self.Element? {
 		guard let index: Self.Index = try self.firstIndex(where: { (element) in
 			try predicate(element) == true
@@ -43,7 +44,7 @@ extension RangeReplaceableCollection {
 	/// - throws: Rethrows a thrown error.
 	/// - returns: A collection with an element removed.
 	@discardableResult
-	public mutating func removeLast(where predicate: (Element) throws -> Bool)
+	public mutating func removeLast(where predicate: (Self.Element) throws -> Bool)
 	rethrows -> Self.Element?
 	where Self: BidirectionalCollection {
 		guard let index: Self.Index = try self.lastIndex(where: { (element) in
@@ -64,7 +65,7 @@ extension RangeReplaceableCollection {
 	///
 	/// - returns: A collection with a random element removed.
 	@discardableResult
-	public mutating func removeRandomElement() -> Element? {
+	public mutating func removeRandomElement() -> Self.Element? {
 		guard let randomIndex = self.indices.randomElement() else {
 			return nil
 		}

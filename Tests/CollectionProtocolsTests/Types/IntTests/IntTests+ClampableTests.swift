@@ -1,17 +1,22 @@
+//
 // Int+ClampableTests.swift
 // CollectionProtocolsTests
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
 import XCTest
 @testable import CollectionProtocols
 
+#if hasFeature(RetroactiveAttribute)
+extension Int: @retroactive Clampable {}
+#else
 extension Int: Clampable {}
+#endif
 
-extension IntTests: ClampableTests {
-	func test_clampingFromValueSucceeds() {
+extension IntTests {
+	internal func test_clampingFromValueSucceeds() {
 		// Given
 		let value: Float = 0
 		let lowerBound: Float = 1
@@ -23,7 +28,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(newValue, 1)
 	}
 	
-	func test_clampFromValueSucceeds() {
+	internal func test_clampFromValueSucceeds() {
 		// Given
 		var value: Float = 0
 		let lowerBound: Float = 1
@@ -35,7 +40,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(value, 1)
 	}
 	
-	func test_clampingFromThroughValueSucceeds() {
+	internal func test_clampingFromThroughValueSucceeds() {
 		// Given
 		let value: Float = 0
 		let lowerBound: Float = 1
@@ -48,7 +53,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(newValue, 1)
 	}
 	
-	func test_clampFromThroughValueSucceeds() {
+	internal func test_clampFromThroughValueSucceeds() {
 		// Given
 		var value: Float = 0
 		let lowerBound: Float = 1
@@ -61,7 +66,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(value, 1)
 	}
 	
-	func test_clampingThroughValueSucceeds() {
+	internal func test_clampingThroughValueSucceeds() {
 		// Given
 		let value: Float = 6
 		let upperBound: Float = 5
@@ -73,7 +78,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(newValue, 5)
 	}
 	
-	func test_clampThroughValueSucceeds() {
+	internal func test_clampThroughValueSucceeds() {
 		// Given
 		var value: Float = 6
 		let upperBound: Float = 5
@@ -85,7 +90,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(value, 5)
 	}
 	
-	func test_clampingToClosedRangeSucceeds() {
+	internal func test_clampingToClosedRangeSucceeds() {
 		// Given
 		let value: Float = 0
 		let range: ClosedRange<Float> = 1...5
@@ -97,7 +102,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(newValue, 1)
 	}
 	
-	func test_clampToClosedRangeSucceeds() {
+	internal func test_clampToClosedRangeSucceeds() {
 		// Given
 		var value: Float = 0
 		let range: ClosedRange<Float> = 1...5
@@ -109,7 +114,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(value, 1)
 	}
 	
-	func test_clampingFromPartialRangeSucceeds() {
+	internal func test_clampingFromPartialRangeSucceeds() {
 		// Given
 		let value: Float = 0
 		let range: PartialRangeFrom<Float> = 1...
@@ -121,7 +126,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(newValue, 1)
 	}
 	
-	func test_clampFromPartialRangeSucceeds() {
+	internal func test_clampFromPartialRangeSucceeds() {
 		// Given
 		var value: Float = 0
 		let range: PartialRangeFrom<Float> = 1...
@@ -133,7 +138,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(value, 1)
 	}
 	
-	func test_clampingThroughPartialRangeSucceeds() {
+	internal func test_clampingThroughPartialRangeSucceeds() {
 		// Given
 		let value: Float = 6
 		let range: PartialRangeThrough<Float> = ...5
@@ -145,7 +150,7 @@ extension IntTests: ClampableTests {
 		XCTAssertEqual(newValue, 5)
 	}
 	
-	func test_clampThroughPartialRangeSucceeds() {
+	internal func test_clampThroughPartialRangeSucceeds() {
 		// Given
 		var value: Float = 6
 		let range: PartialRangeThrough<Float> = ...5

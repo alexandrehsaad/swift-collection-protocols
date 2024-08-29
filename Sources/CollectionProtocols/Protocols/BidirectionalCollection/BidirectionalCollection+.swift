@@ -1,7 +1,8 @@
+//
 // BidirectionalCollection+.swift
 // CollectionProtocols
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -14,8 +15,12 @@ extension BidirectionalCollection {
 	/// print(collection.lastIndex)
 	/// // Prints "4"
 	/// ```
-	public var lastIndex: Int? {
-		return self.indices.index(self.endIndex, offsetBy: -1, limitedBy: self.startIndex) as? Int
+    public var lastIndex: Self.Index? {
+        return self.indices.index(
+            self.endIndex,
+            offsetBy: -1,
+            limitedBy: self.startIndex
+        )
 	}
 	
 	/// The position of the second element in this collection.
@@ -26,8 +31,12 @@ extension BidirectionalCollection {
 	/// print(collection.secondLastIndex)
 	/// // Prints "3"
 	/// ```
-	private var secondLastIndex: Int? {
-		return self.indices.index(self.endIndex, offsetBy: -2, limitedBy: self.startIndex) as? Int
+	private var secondLastIndex: Self.Index? {
+        return self.indices.index(
+            self.endIndex,
+            offsetBy: -2,
+            limitedBy: self.startIndex
+        )
 	}
 	
 	/// The position of the third last element in this collection.
@@ -38,8 +47,12 @@ extension BidirectionalCollection {
 	/// print(collection.thirdLastIndex)
 	/// // Prints "2"
 	/// ```
-	private var thirdLastIndex: Int? {
-		return self.indices.index(self.endIndex, offsetBy: -3, limitedBy: self.startIndex) as? Int
+	private var thirdLastIndex: Self.Index? {
+        return self.indices.index(
+            self.endIndex,
+            offsetBy: -3,
+            limitedBy: self.startIndex
+        )
 	}
 }
 
@@ -54,7 +67,7 @@ extension BidirectionalCollection {
 	/// ```
 	@available(swift, deprecated: 5.5)
 	public var secondLast: Self.Element? {
-		guard let index: Self.Index = self.secondLastIndex as? Self.Index else {
+		guard let index: Self.Index = self.secondLastIndex else {
 			return nil
 		}
 		
@@ -71,7 +84,7 @@ extension BidirectionalCollection {
 	/// ```
 	@available(swift, deprecated: 5.5)
 	public var thirdLast: Self.Element? {
-		guard let index: Self.Index = self.thirdLastIndex as? Self.Index else {
+		guard let index: Self.Index = self.thirdLastIndex else {
 			return nil
 		}
 		

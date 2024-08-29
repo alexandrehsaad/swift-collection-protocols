@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 
 import PackageDescription
 
@@ -9,12 +9,24 @@ let package: Package = .init(
 		.library(name: "CollectionProtocols", targets: ["CollectionProtocols"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/alexandrehsaad/swift-contributors-plugin", branch: "main"),
-		.package(url: "https://github.com/apple/swift-docc-plugin.git", .upToNextMinor(from: "1.0.0"))
+		.package(url: "https://github.com/swiftlang/swift-docc-plugin.git", .upToNextMajor(from: "1.4.2"))
 	],
 	targets: [
-		.target(name: "CollectionProtocols", path: "Sources"),
-		.testTarget(name: "CollectionProtocolsTests", dependencies: ["CollectionProtocols"], path: "Tests")
-	],
-	swiftLanguageVersions: [.v5]
+        .target(
+            name: "CollectionProtocols",
+            path: "Sources",
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency=complete")
+            ]
+        ),
+        .testTarget(
+            name: "CollectionProtocolsTests",
+            dependencies: ["CollectionProtocols"],
+            path: "Tests",
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency=complete")
+            ]
+        )
+    ],
+    swiftLanguageVersions: [.v5]
 )

@@ -1,7 +1,8 @@
+//
 // MutableCollection+.swift
 // CollectionProtocols
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -41,7 +42,7 @@ extension MutableCollection {
 	///
 	/// - parameter newElement: The element to place.
 	public mutating func replaceFirst(with newElement: Self.Element) {
-		guard let index: Self.Index = self.firstIndex as? Self.Index else {
+		guard let index: Self.Index = self.firstIndex else {
 			return
 		}
 		
@@ -62,7 +63,7 @@ extension MutableCollection {
 	/// - parameter newElement: The element to place.
 	public mutating func replaceLast(with newElement: Self.Element)
 	where Self: BidirectionalCollection {
-		guard let index: Self.Index = self.lastIndex as? Self.Index else {
+		guard let index: Self.Index = self.lastIndex else {
 			return
 		}
 		

@@ -1,7 +1,8 @@
+//
 // Array+MutableCollectionTests.swift
 // CollectionProtocolsTests
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -9,7 +10,7 @@ import XCTest
 @testable import CollectionProtocols
 
 extension ArrayTests {
-	func test_replaceWhereFails() {
+	internal func test_replaceWhereFails() {
 		// Given
 		var collection: Array<UInt> = .init()
 		
@@ -20,7 +21,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection, [])
 	}
 	
-	func test_replaceWhereSucceeds() {
+	internal func test_replaceWhereSucceeds() {
 		// Given
 		var collection: Array<UInt> = [10, 20, 0, 40, 50]
 		
@@ -31,7 +32,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection, [10, 20, 30, 40, 50])
 	}
 	
-	func test_replaceFirstWithFails() {
+	internal func test_replaceFirstWithFails() {
 		// Given
 		var collection: Array<UInt> = .init()
 		
@@ -42,7 +43,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection, [])
 	}
 	
-	func test_replaceFirstWithSucceeds() {
+	internal func test_replaceFirstWithSucceeds() {
 		// Given
 		var collection: Array<UInt> = [0, 20, 30, 40, 50]
 		
@@ -53,7 +54,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection, [10, 20, 30, 40, 50])
 	}
 	
-	func test_replaceLastWithFails() {
+	internal func test_replaceLastWithFails() {
 		// Given
 		var collection: Array<UInt> = .init()
 		
@@ -64,7 +65,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection, [])
 	}
 	
-	func test_replaceLastWithSucceeds() {
+	internal func test_replaceLastWithSucceeds() {
 		// Given
 		var collection: Array<UInt> = [10, 20, 30, 40, 0]
 		
@@ -75,7 +76,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection, [10, 20, 30, 40, 50])
 	}
 	
-	func test_modifyEachFails() {
+	internal func test_modifyEachFails() {
 		// Given
 		var collection: Array<UInt> = .init()
 		
@@ -86,7 +87,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection, [])
 	}
 	
-	func test_modifyEachSucceeds() {
+	internal func test_modifyEachSucceeds() {
 		// Given
 		var collection: Array<UInt> = .init(1...5)
 		

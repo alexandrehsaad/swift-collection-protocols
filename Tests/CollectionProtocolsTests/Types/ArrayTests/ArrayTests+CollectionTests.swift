@@ -1,7 +1,8 @@
+//
 // Array+CollectionTests.swift
 // CollectionProtocolsTests
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -9,7 +10,7 @@ import XCTest
 @testable import CollectionProtocols
 
 extension ArrayTests {
-	func test_firstIndexFails() {
+	internal func test_firstIndexFails() {
 		// Given
 		let collection: Array<UInt> = .init()
 		
@@ -18,7 +19,7 @@ extension ArrayTests {
 		XCTAssertNil(collection.firstIndex)
 	}
 	
-	func test_firstIndexSucceeds() {
+	internal func test_firstIndexSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -28,7 +29,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_secondFails() {
+	internal func test_secondFails() {
 		// Given
 		let collection: Array<UInt> = .init()
 		
@@ -38,7 +39,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_secondSucceeds() {
+	internal func test_secondSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -48,7 +49,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_thirdFails() {
+	internal func test_thirdFails() {
 		// Given
 		let collection: Array<UInt> = .init()
 		
@@ -58,7 +59,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_thirdSucceeds() {
+	internal func test_thirdSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -67,7 +68,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection.endIndex, 5)
 	}
 	
-	func test_afterSucceeds() {
+	internal func test_afterSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		

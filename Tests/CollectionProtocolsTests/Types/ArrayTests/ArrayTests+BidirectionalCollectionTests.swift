@@ -1,7 +1,8 @@
+//
 // Array+BidirectionalCollectionTests.swift
 // CollectionProtocolsTests
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -9,7 +10,7 @@ import XCTest
 @testable import CollectionProtocols
 
 extension ArrayTests {
-	func test_lastIndexFails() {
+	internal func test_lastIndexFails() {
 		// Given
 		let collection: Array<UInt> = .init()
 		
@@ -18,7 +19,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection.endIndex, 0)
 	}
 	
-	func test_lastIndexSucceeds() {
+	internal func test_lastIndexSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -28,7 +29,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_secondLastFails() {
+	internal func test_secondLastFails() {
 		// Given
 		let collection: Array<UInt> = .init()
 		
@@ -38,7 +39,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_secondLastSucceeds() {
+	internal func test_secondLastSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -48,7 +49,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_thirdLastFails() {
+	internal func test_thirdLastFails() {
 		// Given
 		let collection: Array<UInt> = .init()
 		
@@ -58,7 +59,7 @@ extension ArrayTests {
 	}
 	
 	@available(swift, deprecated: 5.5)
-	func test_thirdLastSucceeds() {
+	internal func test_thirdLastSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -67,7 +68,7 @@ extension ArrayTests {
 		XCTAssertEqual(collection.endIndex, 5)
 	}
 	
-	func test_beforeSucceeds() {
+	internal func test_beforeSucceeds() {
 		// Given
 		let collection: Array<UInt> = [10, 20, 30, 40, 50]
 		

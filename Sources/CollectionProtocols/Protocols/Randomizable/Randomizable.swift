@@ -1,7 +1,8 @@
+//
 // Randomizable.swift
 // CollectionProtocols
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -16,9 +17,6 @@ where Self: Strideable {
 }
 
 extension Randomizable {
-	
-	// MARK: - Generating Values
-	
     /// Returns a random instance within the specified range.
     ///
     /// - parameter range: The range in which to create a random value.

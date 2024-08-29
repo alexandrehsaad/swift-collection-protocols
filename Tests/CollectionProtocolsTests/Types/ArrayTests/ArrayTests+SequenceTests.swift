@@ -1,7 +1,8 @@
+//
 // Array+SequenceTests.swift
 // CollectionProtocolsTests
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -9,7 +10,7 @@ import XCTest
 @testable import CollectionProtocols
 
 extension ArrayTests {
-	func test_anySatisfyWhereReturnsFalse() {
+	internal func test_anySatisfyWhereReturnsFalse() {
 		// Given
 		let sequence: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -20,7 +21,7 @@ extension ArrayTests {
 		XCTAssertFalse(result)
 	}
 	
-	func test_anySatisfyWhereReturnsTrue() {
+	internal func test_anySatisfyWhereReturnsTrue() {
 		// Given
 		let sequence: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -31,7 +32,7 @@ extension ArrayTests {
 		XCTAssertTrue(result)
 	}
 	
-	func test_noneSatisfyWhereReturnsFalse() {
+	internal func test_noneSatisfyWhereReturnsFalse() {
 		// Given
 		let sequence: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -42,7 +43,7 @@ extension ArrayTests {
 		XCTAssertFalse(result)
 	}
 	
-	func test_noneSatisfyWhereReturnsTrue() {
+	internal func test_noneSatisfyWhereReturnsTrue() {
 		// Given
 		let sequence: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -53,7 +54,7 @@ extension ArrayTests {
 		XCTAssertTrue(result)
 	}
 	
-	func test_containsContentsOfReturnsFalse() {
+	internal func test_containsContentsOfReturnsFalse() {
 		// Given
 		let sequence: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -64,7 +65,7 @@ extension ArrayTests {
 		XCTAssertFalse(result)
 	}
 	
-	func test_containsContentsOfReturnsTrue() {
+	internal func test_containsContentsOfReturnsTrue() {
 		// Given
 		let sequence: Array<UInt> = [10, 20, 30, 40, 50]
 		
@@ -75,7 +76,7 @@ extension ArrayTests {
 		XCTAssertTrue(result)
 	}
 	
-	func test_containsContentsOfFails() {
+	internal func test_containsContentsOfFails() {
 		// Given
 		let sequence: Array<String> = ["h", "e", "l", "l", "o"]
 		
@@ -86,7 +87,7 @@ extension ArrayTests {
 		XCTAssertEqual(result, 0)
 	}
 		
-	func test_containsContentsOfSucceeds() {
+	internal func test_containsContentsOfSucceeds() {
 		// Given
 		let sequence: Array<String> = ["h", "e", "l", "l", "o"]
 		

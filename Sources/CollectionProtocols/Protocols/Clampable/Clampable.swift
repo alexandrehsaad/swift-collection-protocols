@@ -1,7 +1,8 @@
+//
 // Clampable.swift
 // CollectionProtocols
 //
-// Copyright © 2021-2022 Alexandre H. Saad
+// Copyright © 2021-2024 Alexandre H. Saad
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 
@@ -10,9 +11,6 @@ internal protocol Clampable
 where Self: Comparable {}
 
 extension Clampable {
-	
-	// MARK: - Clamping with Values
-	
 	/// Returns a value clamped from a specified value.
 	///
 	/// ```swift
@@ -52,9 +50,14 @@ extension Clampable {
 	/// - parameter maximumValue: A maximum value.
 	/// - returns: The value clamped.
 	/// - Warning: The minimum value must be smaller than the maximum value.
-	internal func clamping(from minimumValue: Self, through maximumValue: Self) -> Self {
+    internal func clamping(
+        from minimumValue: Self,
+        through maximumValue: Self
+    ) -> Self {
 		precondition(minimumValue < maximumValue)
-		return self.clamping(from: minimumValue).clamping(through: maximumValue)
+		return self
+            .clamping(from: minimumValue)
+            .clamping(through: maximumValue)
 	}
 	
 	/// Clamps this value within two specified values.
@@ -70,8 +73,14 @@ extension Clampable {
 	/// - parameter maximumValue: A maximum value.
 	/// - returns: The value clamped.
 	/// - Warning: The minimum value must be smaller than the maximum value.
-	internal mutating func clamp(from minimumValue: Self, through maximumValue: Self) {
-		self = self.clamping(from: minimumValue, through: maximumValue)
+    internal mutating func clamp(
+        from minimumValue: Self,
+        through maximumValue: Self
+    ) {
+        self = self.clamping(
+            from: minimumValue,
+            through: maximumValue
+        )
 	}
 	
 	/// Returns a value clamped to a maximum specified value.
@@ -102,8 +111,6 @@ extension Clampable {
 		self = self.clamping(through: maximumValue)
 	}
 	
-	// MARK: - Clamping with Ranges
-	
 	/// Returns a value clamped to a specified closed range.
 	///
 	/// ```swift
@@ -114,7 +121,10 @@ extension Clampable {
 	/// - parameter closedRange: An interval from a lower bound up to, and including, an upper bound.
 	/// - returns: The value clamped.
 	internal func clamping(to closedRange: ClosedRange<Self>) -> Self {
-		return self.clamping(from: closedRange.lowerBound, through: closedRange.upperBound)
+        return self.clamping(
+            from: closedRange.lowerBound,
+            through: closedRange.upperBound
+        )
 	}
 
 	/// Returns a value clamped to a specified closed range.
