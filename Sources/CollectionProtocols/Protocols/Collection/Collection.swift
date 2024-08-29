@@ -1,5 +1,5 @@
 //
-// Collection+.swift
+// Collection.swift
 // CollectionProtocols
 //
 // Copyright © 2021-2024 Alexandre H. Saad

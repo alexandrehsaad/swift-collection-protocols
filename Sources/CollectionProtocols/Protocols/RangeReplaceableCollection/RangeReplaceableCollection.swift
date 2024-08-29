@@ -1,5 +1,5 @@
 //
-// RangeReplaceableCollection+.swift
+// RangeReplaceableCollection.swift
 // CollectionProtocols
 //
 // Copyright © 2021-2024 Alexandre H. Saad
